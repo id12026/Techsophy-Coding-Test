@@ -2,7 +2,7 @@
 
 ## Overview
 
-This web-based application helps patients to find suitable clinical trials based on their medical and demographic profiles. The system utilizes AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
+This tool helps patients to find suitable clinical trials based on their medical and demographic profiles. The system utilizes AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
 
 ## Key Features
 
@@ -28,7 +28,7 @@ This web-based application helps patients to find suitable clinical trials based
   
 - **ML/NLP**: Scikit-learn (TF-IDF, Cosine Similarity)
   
-- **Data**: JSON (for trial storage)
+- **Data**: JSON 
 
 ## Project Structure
 
