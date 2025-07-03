@@ -134,3 +134,10 @@ clinical-trial-matcher/
 ## License
 
 This project is licensed under the Apache License.
+
+## BY
+
+## Mohitha Bandi
+## 22WU0105037
+## C.S.E - Data Science
+## E-mail: mohitha.bandi_2026@woxsen.edu.in
