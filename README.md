@@ -4,6 +4,10 @@
 
 This tool helps patients to find suitable clinical trials based on their medical and demographic profiles. The system utilizes AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
 
+## Problem Statement: 
+
+Build a tool that matches patients to relevant clinical trials based on eligibility criteria.
+
 ## Key Features
 
 - **Patient Profile Input**: Collects age, gender, city, medical conditions, medications, allergies, and lab results.
