@@ -9,12 +9,10 @@ from typing import Dict, List, Tuple, Optional
 
 app = Flask(__name__)
 
-# Load expanded clinical trials data for India
 with open('trials.json') as f:
     trials_data = json.load(f)
 
-# List of common diseases in India
-INDIAN_DISEASES = [
+DISEASES = [
     "Diabetes", "Hypertension", "Coronary Artery Disease", "Chronic Obstructive Pulmonary Disease",
     "Tuberculosis", "Asthma", "Dengue", "Malaria", "Chikungunya", "Typhoid",
     "Hepatitis B", "Hepatitis C", "HIV/AIDS", "Cancer", "Breast Cancer", "Lung Cancer",
@@ -29,26 +27,6 @@ INDIAN_DISEASES = [
     "Otitis Media", "Sinusitis", "Allergic Rhinitis", "Migraine", "Tension Headache",
     "Depression", "Anxiety Disorders", "Bipolar Disorder", "Schizophrenia",
     "Obsessive-Compulsive Disorder", "Autism Spectrum Disorder", "ADHD"
-]
-
-# Indian cities and states
-INDIAN_LOCATIONS = [
-    "Mumbai, Maharashtra", "Delhi", "Bangalore, Karnataka", "Hyderabad, Telangana",
-    "Chennai, Tamil Nadu", "Kolkata, West Bengal", "Pune, Maharashtra", 
-    "Ahmedabad, Gujarat", "Jaipur, Rajasthan", "Surat, Gujarat",
-    "Lucknow, Uttar Pradesh", "Kanpur, Uttar Pradesh", "Nagpur, Maharashtra",
-    "Patna, Bihar", "Indore, Madhya Pradesh", "Thane, Maharashtra",
-    "Bhopal, Madhya Pradesh", "Visakhapatnam, Andhra Pradesh", "Vadodara, Gujarat",
-    "Firozabad, Uttar Pradesh", "Ludhiana, Punjab", "Rajkot, Gujarat",
-    "Agra, Uttar Pradesh", "Siliguri, West Bengal", "Nashik, Maharashtra",
-    "Faridabad, Haryana", "Patiala, Punjab", "Meerut, Uttar Pradesh",
-    "Kalyan-Dombivli, Maharashtra", "Vasai-Virar, Maharashtra", "Varanasi, Uttar Pradesh",
-    "Srinagar, Jammu and Kashmir", "Dhanbad, Jharkhand", "Jodhpur, Rajasthan",
-    "Amritsar, Punjab", "Raipur, Chhattisgarh", "Allahabad, Uttar Pradesh",
-    "Coimbatore, Tamil Nadu", "Jabalpur, Madhya Pradesh", "Gwalior, Madhya Pradesh",
-    "Vijayawada, Andhra Pradesh", "Madurai, Tamil Nadu", "Guwahati, Assam",
-    "Chandigarh", "Hubli-Dharwad, Karnataka", "Amroha, Uttar Pradesh",
-    "Moradabad, Uttar Pradesh", "Gurgaon, Haryana", "Noida, Uttar Pradesh"
 ]
 
 @dataclass
@@ -78,7 +56,6 @@ class ClinicalTrial:
     therapeutic_area: str
 
 class CriteriaParser:
-    """Enhanced criteria parser with support for Indian medical terminology"""
     
     @staticmethod
     def parse_numerical_criteria(criteria: str) -> Tuple[Optional[float], Optional[float]]:
@@ -112,14 +89,13 @@ class CriteriaParser:
     
     @staticmethod
     def parse_list_criteria(criteria: str) -> List[str]:
-        # Handle Indian English variations
+
         criteria = criteria.replace('viz.', '').replace('i.e.', '')
         items = re.split(r',|;| or | and |/', criteria)
         items = [item.strip().lower() for item in items if item.strip()]
         return items
 
 class PatientTrialMatcher:
-    """Enhanced matcher for Indian healthcare context"""
     
     def __init__(self, trials: List[ClinicalTrial]):
         self.trials = trials
@@ -278,8 +254,7 @@ matcher = PatientTrialMatcher(trials)
 @app.route('/')
 def index():
     return render_template('index.html', 
-                           locations=INDIAN_LOCATIONS,
-                           diseases=INDIAN_DISEASES)
+                           diseases= DISEASES)
 
 @app.route('/match', methods=['POST'])
 def match_patient():
@@ -326,7 +301,7 @@ def match_patient():
         return render_template('results.html', 
                                patient=patient_data, 
                                results=results,
-                               diseases=INDIAN_DISEASES) 
+                               diseases=DISEASES) 
     
     except Exception as e:
         # Logging the error for debugging
