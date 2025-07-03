@@ -1,109 +1,114 @@
-# Techsophy-Coding-Test
+Clinical Trial Patient Matching System
+A web-based application that helps patients in India find suitable clinical trials based on their medical and demographic profiles. The system uses AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
 
-```markdown
-# Clinical Trial Patient Matching System 
+🔍 Overview
+This system matches patients to trials by evaluating eligibility criteria, conditions, medications, and location proximity. Designed for ease of use with a clear interface and smart matching engine.
 
-## Overview
+🧠 Key Features
+Patient Profile Input: Age, gender, city, medical conditions, medications, allergies, lab results.
 
-This project implements a web-based Clinical Trial Patient Matching System designed to help patients in India find suitable clinical trials based on their demographic and medical profiles. The system employs AI/ML techniques, including TF-IDF for semantic similarity and a criteria-based scoring engine, to provide ranked recommendations.
+Location-Aware Filtering: Filters trials by Indian cities/states.
 
-The application is built with Flask for the backend and standard web technologies (HTML, CSS, JavaScript) for the frontend.
+Disease-Specific Shortcuts: Quick-tag options for common Indian diseases.
 
-## Features
+Eligibility Matching: Dynamically checks inclusion/exclusion criteria.
 
-* **Patient Profile Input:** Collects essential patient information including age, gender, location, medical conditions, medications, allergies, and key lab results.
-* **Location-Aware Matching:** Utilizes a predefined list of Indian cities and states for location-based trial filtering.
-* **Disease-Specific Suggestions:** Provides quick-add tags for common Indian diseases to streamline patient input.
-* **Dynamic Eligibility Assessment:** Evaluates inclusion and exclusion criteria (numerical ranges, specific conditions/medications) against patient data.
-* **Semantic Similarity Matching:** Uses TF-IDF and Cosine Similarity to find trials semantically related to the patient's conditions and medications, even if exact keyword matches are not present.
-* **Weighted Scoring & Ranking:** Assigns a match score to each trial based on satisfied criteria and semantic relevance, then ranks trials by this score.
-* **Clear Results Display:** Presents matched trials with their scores, detailed descriptions, and explicit inclusion/exclusion criteria.
-* **Contact Mechanism (Placeholder):** A "Contact Trial Coordinator" button provides generic contact information via a modal popup.
+Semantic Matching: Uses TF-IDF + cosine similarity to find relevant trials, even with varied terminology.
 
-## Technical Skills Demonstrated
+Weighted Scoring: Trials are ranked based on rule-based and semantic relevance.
 
-* **AI/ML:** TF-IDF Vectorization, Cosine Similarity for semantic matching, rule-based scoring algorithms.
-* **Critical Thinking:** Design of complex eligibility logic, handling of inclusion/exclusion rules.
-* **Problem Solving:** Parsing natural language criteria, managing multiple data points for matching.
-* **Modular Architecture:** Separation of concerns into `CriteriaParser`, `PatientTrialMatcher` classes, and distinct Flask routes/templates.
-* **Web Development:** Flask (Python), HTML, CSS, JavaScript for a functional user interface.
-* **Data Handling:** JSON for storing clinical trial data.
+Results with Contact Info: Displays trial details with a generic contact option (modal popup).
 
-## Project Structure
+🛠 Tech Stack
+Frontend: HTML, CSS, JavaScript
 
-```
+Backend: Flask (Python)
 
+ML/NLP: Scikit-learn (TF-IDF, Cosine Similarity)
+
+Data: JSON (for trial storage)
+
+📁 Project Structure
+php
+Copy
+Edit
 clinical-trial-matcher/
-├── app.py                     \# Flask application logic, matching engine
-├── trials.json                \# Sample clinical trial data (Indian context)
+├── app.py                 # Main Flask app and logic
+├── trials.json            # Sample trial data (India-specific)
 ├── static/
-│   ├── style.css              \# Frontend styling
-│   └── script.js              \# Frontend JavaScript for form and modal
+│   ├── style.css          # Custom styling
+│   └── script.js          # Form interaction and modal logic
 └── templates/
-├── index.html             \# Patient input form
-└── results.html           \# Display of matching results and contact modal
+    ├── index.html         # Home form page
+    └── results.html       # Matched trials display
+🚀 Installation
+Clone this repo
 
-````
+bash
+Copy
+Edit
+git clone https://github.com/your-username/clinical-trial-matcher.git
+cd clinical-trial-matcher
+Set up virtual environment (recommended)
 
-## Setup and Installation
+bash
+Copy
+Edit
+python -m venv venv
+Activate environment
 
-To run this project locally, follow these steps:
+Windows:
 
-1.  **Clone the repository (if applicable):**
-    ```bash
-    git clone <your-repo-url>
-    cd clinical-trial-matcher
-    ```
-    (If you received the code as files, just navigate to the `clinical-trial-matcher` directory.)
+bash
+Copy
+Edit
+.\venv\Scripts\activate
+macOS/Linux:
 
-2.  **Create a virtual environment (recommended):**
-    ```bash
-    python -m venv venv
-    ```
+bash
+Copy
+Edit
+source venv/bin/activate
+Install dependencies
 
-3.  **Activate the virtual environment:**
-    * On Windows:
-        ```bash
-        .\venv\Scripts\activate
-        ```
-    * On macOS/Linux:
-        ```bash
-        source venv/bin/activate
-        ```
+bash
+Copy
+Edit
+pip install Flask scikit-learn
+Run the app
 
-4.  **Install the required Python packages:**
-    ```bash
-    pip install Flask scikit-learn
-    ```
+bash
+Copy
+Edit
+python app.py
+Visit the app
+Open your browser at: http://127.0.0.1:5000
 
-5.  **Run the Flask application:**
-    ```bash
-    python app.py
-    ```
+🧪 How to Use
+Fill out the patient’s form on the homepage.
 
-6.  **Access the application:**
-    Open your web browser and go to `http://127.0.0.1:5000/`.
+Select your location and relevant conditions/medications.
 
-## Usage
+Click Find Matching Trials.
 
-1.  **Fill out the Patient Form:** On the homepage, enter the patient's demographic information, medical conditions, current medications, allergies, and optional lab results.
-2.  **Select Location:** Choose an Indian city/state from the dropdown.
-3.  **Click "Find Matching Trials":** The system will process the input and display a list of recommended clinical trials.
-4.  **Review Results:** Each matching trial shows its match score, details, description, and specific inclusion/exclusion criteria.
-5.  **Contact Coordinator:** Click the "Contact Trial Coordinator" button on any trial card to see generic contact information in a popup.
+Review the trial cards, each showing a match score and eligibility info.
 
-## Future Enhancements
+Click Contact Trial Coordinator for general contact guidance.
 
-* **More Sophisticated NLP:** Implement more advanced NLP (e.g., named entity recognition, BERT embeddings) for better understanding of medical text and more nuanced semantic matching.
-* **Database Integration:** Replace `trials.json` with a proper database (e.g., SQLite, PostgreSQL) for scalable data management.
-* **User Accounts & Profiles:** Allow users to create accounts, save patient profiles, and track trial applications.
-* **Trial Search Filters:** Add more filtering options for trials (e.g., by phase, therapeutic area).
-* **Admin Interface:** A backend interface for managing and adding new clinical trial data.
-* **Real Contact Information:** Integrate actual contact details for trials (if available and permissible).
-* **Robust Error Handling:** More detailed error messages and logging for production environments.
-* **Unit and Integration Tests:** Comprehensive testing to ensure accuracy and reliability of the matching logic.
+🧩 Future Improvements
+BERT/NER for more accurate NLP parsing.
 
-## License
+Move from trials.json to SQL/PostgreSQL.
 
-This project is open-source and available under the [MIT License](LICENSE). (You would typically create a `LICENSE` file in the root directory if you want to explicitly define this).
-````
+Add user login and patient profile saving.
+
+Advanced trial filters (e.g., by trial phase).
+
+Admin panel for trial data upload.
+
+Real contact integration (if permissible).
+
+Full testing suite and production-level logging.
+
+📄 License
+This project is licensed under the
