@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Clinical Trial Matching System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="container">
+        <header>
+            <h1>Clinical Trial Patient Matching System</h1>
+            <p>Find suitable clinical trials for patients</p>
+        </header>
+        
+        <form id="patient-form" action="/match" method="POST">
+            <div class="form-section">
+                <h2>Demographic Information</h2>
+                
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required min="1" max="120">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" readonly placeholder="Click to get location">
+                    <button type="button" id="get-location">Get My Location</button>
+                    <select id="location-select" style="display: none;">
+                        <option value="">Select City (if location not available)</option>
+                        {% for city in cities %}
+                        <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                    <p id="location-error" style="color: #e74c3c; display: none;">Unable to fetch location. Please select a city.</p>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Medical Information</h2>
+                
+                <div class="form-group">
+                    <label for="conditions">Medical Conditions (comma separated):</label>
+                    <textarea id="conditions" name="conditions" required 
+                              placeholder="e.g., Diabetes, Hypertension"></textarea>
+                    <div class="disease-suggestions">
+                        <span>Common conditions:</span>
+                        {% for disease in diseases[:12] %}
+                        <span class="disease-tag" onclick="addDisease('{{ disease }}')">{{ disease }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="medications">Current Medications (comma separated):</label>
+                    <textarea id="medications" name="medications" 
+                              placeholder="e.g., Metformin, Lisinopril"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="allergies">Allergies (comma separated):</label>
+                    <textarea id="allergies" name="allergies" 
+                              placeholder="e.g., Penicillin, Peanuts"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Lab Results</h2>
+                
+                <div class="lab-grid">
+                    <div class="form-group">
+                        <label for="hba1c">HbA1c (%):</label>
+                        <input type="number" id="hba1c" name="hba1c" min="0" max="20" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="systolic_bp">Systolic BP (mmHg):</label>
+                        <input type="number" id="systolic_bp" name="systolic_bp" min="50" max="300">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bmi">BMI:</label>
+                        <input type="number" id="bmi" name="bmi" min="10" max="70" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="creatinine">Creatinine (mg/dL):</label>
+                        <input type="number" id="creatinine" name="creatinine" min="0" max="20" step="0.1">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit">Find Matching Trials</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

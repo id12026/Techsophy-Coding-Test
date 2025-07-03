@@ -1,0 +1,175 @@
+[
+    {
+        "trial_id": "CTI001",
+        "title": "Diabetes Management Study in Indian Population",
+        "description": "A phase 3 clinical trial evaluating the efficacy and safety of a novel oral antidiabetic drug specifically in Indian patients with type 2 diabetes mellitus.",
+        "inclusion_criteria": {
+            "age": "between 30 and 70",
+            "conditions": "type 2 diabetes",
+            "hba1c": ">=7.5 and <=11.0",
+            "gender": "any",
+            "bmi": ">=23"
+        },
+        "exclusion_criteria": {
+            "conditions": "type 1 diabetes, pancreatic diabetes, gestational diabetes",
+            "medications": "insulin, GLP-1 receptor agonists"
+        },
+        "locations": ["Mumbai, Maharashtra", "Delhi", "Chennai, Tamil Nadu", "Bangalore, Karnataka"],
+        "phase": "Phase 3",
+        "therapeutic_area": "Endocrinology"
+    },
+    {
+        "trial_id": "CTI002",
+        "title": "Hypertension Control in South Asian Patients",
+        "description": "A phase 4 study comparing the effectiveness of two antihypertensive regimens in South Asian patients with uncontrolled hypertension.",
+        "inclusion_criteria": {
+            "age": ">=25 and <=80",
+            "conditions": "hypertension",
+            "systolic_bp": ">=140",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "secondary hypertension, severe heart failure",
+            "creatinine": ">1.5"
+        },
+        "locations": ["Hyderabad, Telangana", "Kolkata, West Bengal", "Pune, Maharashtra", "Ahmedabad, Gujarat"],
+        "phase": "Phase 4",
+        "therapeutic_area": "Cardiology"
+    },
+    {
+        "trial_id": "CTI003",
+        "title": "Novel Therapy for Chronic Obstructive Pulmonary Disease (COPD)",
+        "description": "A randomized, double-blind, placebo-controlled trial of a new inhaled medication for patients with moderate to severe COPD.",
+        "inclusion_criteria": {
+            "age": "40 to 75",
+            "conditions": "COPD",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "asthma, cystic fibrosis, active tuberculosis",
+            "medications": "oral corticosteroids (high dose)"
+        },
+        "locations": ["Lucknow, Uttar Pradesh", "Jaipur, Rajasthan", "Indore, Madhya Pradesh"],
+        "phase": "Phase 2",
+        "therapeutic_area": "Pulmonology"
+    },
+    {
+        "trial_id": "CTI004",
+        "title": "Tuberculosis Treatment Shortening Study",
+        "description": "An open-label trial to assess the efficacy of a shorter regimen for drug-sensitive pulmonary tuberculosis.",
+        "inclusion_criteria": {
+            "age": "18-65",
+            "conditions": "pulmonary tuberculosis (drug-sensitive)",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "MDR-TB, HIV/AIDS, severe liver disease",
+            "medications": "immunosuppressants"
+        },
+        "locations": ["Patna, Bihar", "Bhopal, Madhya Pradesh", "Chennai, Tamil Nadu"],
+        "phase": "Phase 3",
+        "therapeutic_area": "Infectious Diseases"
+    },
+    {
+        "trial_id": "CTI005",
+        "title": "Breast Cancer Immunotherapy Trial",
+        "description": "A study investigating the effectiveness of an immunotherapy drug in combination with chemotherapy for advanced breast cancer.",
+        "inclusion_criteria": {
+            "age": ">=18",
+            "conditions": "breast cancer (HER2-negative, metastatic)",
+            "gender": "female"
+        },
+        "exclusion_criteria": {
+            "conditions": "autoimmune diseases, active infections",
+            "medications": "systemic corticosteroids"
+        },
+        "locations": ["Delhi", "Bangalore, Karnataka", "Mumbai, Maharashtra"],
+        "phase": "Phase 2",
+        "therapeutic_area": "Oncology"
+    },
+    {
+        "trial_id": "CTI006",
+        "title": "Rheumatoid Arthritis Biologic Therapy Study",
+        "description": "A trial to evaluate a new biologic agent for patients with moderate to severe active rheumatoid arthritis who have failed conventional therapy.",
+        "inclusion_criteria": {
+            "age": ">=18",
+            "conditions": "rheumatoid arthritis (moderate to severe)",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "active infection, severe kidney disease",
+            "medications": "other biologics"
+        },
+        "locations": ["Pune, Maharashtra", "Visakhapatnam, Andhra Pradesh", "Kolkata, West Bengal"],
+        "phase": "Phase 3",
+        "therapeutic_area": "Rheumatology"
+    },
+    {
+        "trial_id": "CTI007",
+        "title": "Dengue Fever Outpatient Management",
+        "description": "Observational study on the progression of dengue fever in adult outpatients in endemic areas.",
+        "inclusion_criteria": {
+            "age": "18-60",
+            "conditions": "suspected or confirmed dengue fever",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "dengue hemorrhagic fever, severe dengue shock syndrome",
+            "medications": "anticoagulants"
+        },
+        "locations": ["Chennai, Tamil Nadu", "Guwahati, Assam", "Chandigarh"],
+        "phase": "Observational",
+        "therapeutic_area": "Infectious Diseases"
+    },
+    {
+        "trial_id": "CTI008",
+        "title": "Chronic Kidney Disease Progression Trial",
+        "description": "A study evaluating a novel drug to slow the progression of chronic kidney disease in patients with diabetes.",
+        "inclusion_criteria": {
+            "age": "35 to 75",
+            "conditions": "chronic kidney disease, diabetes",
+            "creatinine": "<2.0",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "dialysis, kidney transplant",
+            "medications": "SGLT2 inhibitors (unless stable for >3 months)"
+        },
+        "locations": ["Delhi", "Mumbai, Maharashtra", "Bangalore, Karnataka"],
+        "phase": "Phase 2",
+        "therapeutic_area": "Nephrology"
+    },
+    {
+        "trial_id": "CTI009",
+        "title": "Stroke Rehabilitation Improvement Study",
+        "description": "A randomized controlled trial assessing an intensive neurorehabilitation program for patients recovering from ischemic stroke.",
+        "inclusion_criteria": {
+            "age": "50-85",
+            "conditions": "ischemic stroke (recent, within 3 months)",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "hemorrhagic stroke, severe cognitive impairment"
+        },
+        "locations": ["Hyderabad, Telangana", "Nagpur, Maharashtra", "Lucknow, Uttar Pradesh"],
+        "phase": "Phase 3",
+        "therapeutic_area": "Neurology"
+    },
+    {
+        "trial_id": "CTI010",
+        "title": "Psoriasis Topical Treatment Efficacy",
+        "description": "A study comparing a new topical cream with standard therapy for moderate plaque psoriasis.",
+        "inclusion_criteria": {
+            "age": "18-70",
+            "conditions": "plaque psoriasis (moderate)",
+            "gender": "any"
+        },
+        "exclusion_criteria": {
+            "conditions": "erythrodermic psoriasis, pustular psoriasis",
+            "medications": "systemic immunosuppressants"
+        },
+        "locations": ["Amritsar, Punjab", "Rajkot, Gujarat", "Surat, Gujarat"],
+        "phase": "Phase 3",
+        "therapeutic_area": "Dermatology"
+    }
+]

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Trial Matching Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Clinical Trial Matching Results</h1>
+            <a href="/" class="back-link">← Back to search</a>
+        </header>
+        
+        <div class="patient-summary">
+            <h2>Patient Summary</h2>
+            <div class="summary-grid">
+                <div><strong>Age:</strong> {{ patient.age }} years</div>
+                <div><strong>Gender:</strong> {{ patient.gender }}</div>
+                <div><strong>Location:</strong> {{ patient.location }}</div>
+                <div><strong>Conditions:</strong> {{ patient.conditions|join(', ') if patient.conditions else 'N/A' }}</div>
+                {% if patient.medications %}
+                <div><strong>Medications:</strong> {{ patient.medications|join(', ') }}</div>
+                {% endif %}
+                {% if patient.allergies %}
+                <div><strong>Allergies:</strong> {{ patient.allergies|join(', ') }}</div>
+                {% endif %}
+                {% if patient.lab_results %}
+                <div><strong>Lab Results:</strong>
+                    {% for test, value in patient.lab_results.items() %}
+                    {{ test|replace('_', ' ')|title }}: {{ value }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <h2>Recommended Clinical Trials</h2>
+            
+            {% if not results %}
+            <div class="no-results">
+                <p>No matching clinical trials found based on the provided criteria.</p>
+                <p>Try adjusting the search parameters (e.g., age, conditions, location) or contact us for assistance.</p>
+            </div>
+            {% else %}
+            <div class="results-grid">
+                {% for trial in results %}
+                <div class="trial-card">
+                    <div class="trial-header">
+                        <h3>{{ trial.title }}</h3>
+                        <div class="match-score">Match: {{ trial.score }}%</div>
+                    </div>
+                    
+                    <div class="trial-details">
+                        <div><strong>Trial ID:</strong> {{ trial.trial_id }}</div>
+                        <div><strong>Phase:</strong> {{ trial.phase }}</div>
+                        <div><strong>Locations:</strong> {{ trial.locations|join(', ') }}</div>
+                    </div>
+                    
+                    <div class="trial-description">
+                        <p>{{ trial.description }}</p>
+                    </div>
+                    
+                    <div class="criteria-section">
+                        <div class="inclusion-criteria">
+                            <h4>Inclusion Criteria</h4>
+                            <ul>
+                                {% for criterion, value in trial.inclusion_criteria.items() %}
+                                <li><strong>{{ criterion|replace('_', ' ')|title }}:</strong> {{ value }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <div class="exclusion-criteria">
+                            <h4>Exclusion Criteria</h4>
+                            <ul>
+                                {% for criterion, value in trial.exclusion_criteria.items() %}
+                                <li><strong>{{ criterion|replace('_', ' ')|title }}:</strong> {{ value }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="trial-actions">
+                        <button class="contact-btn">Contact Trial Coordinator</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3>Contact for Clinical Trial: <span id="modalTrialTitle"></span></h3>
+                <p><strong>Trial ID:</strong> <span id="modalTrialId"></span></p>
+                <p>For more information or to inquire about participation, please contact the trial coordinator:</p>
+                <p><strong>Email:</strong> <a id="modalContactEmail" href="#"></a></p>
+                <p><strong>Phone:</strong> <span id="modalContactPhone"></span></p>
+                <p>Please note: This is a generic contact. For specific trials, contact details might vary. Always verify information from official sources.</p>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
