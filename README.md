@@ -1,4 +1,4 @@
-## 🏥Clinical Trial Patient Matching System 
+🏥 Clinical Trial Patient Matching System
 
 ## Overview:
 
