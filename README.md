@@ -1,37 +1,38 @@
-Clinical Trial Patient Matching System
-A web-based application that helps patients in India find suitable clinical trials based on their medical and demographic profiles. The system uses AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
+# Clinical Trial Patient Matching System
 
-🔍 Overview
-This system matches patients to trials by evaluating eligibility criteria, conditions, medications, and location proximity. Designed for ease of use with a clear interface and smart matching engine.
+## Overview
 
-🧠 Key Features
-Patient Profile Input: Age, gender, city, medical conditions, medications, allergies, lab results.
+This web-based application helps patients to find suitable clinical trials based on their medical and demographic profiles. The system utilizes AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
 
-Location-Aware Filtering: Filters trials by Indian cities/states.
+## Key Features
 
-Disease-Specific Shortcuts: Quick-tag options for common Indian diseases.
+- **Patient Profile Input**: Collects age, gender, city, medical conditions, medications, allergies, and lab results.
+  
+- **Location-Aware Filtering**: Filters trials by Indian cities/states.
+  
+- **Disease-Specific Shortcuts**: Quick-tag options for common Indian diseases.
+  
+- **Eligibility Matching**: Dynamically checks inclusion/exclusion criteria.
+  
+- **Semantic Matching**: Uses TF-IDF + cosine similarity to find relevant trials, accommodating varied terminology.
+  
+- **Weighted Scoring**: Trials are ranked based on rule-based and semantic relevance.
+  
+- **Results with Contact Info**: Displays trial details with a generic contact option (modal popup).
 
-Eligibility Matching: Dynamically checks inclusion/exclusion criteria.
+## Tech Stack
 
-Semantic Matching: Uses TF-IDF + cosine similarity to find relevant trials, even with varied terminology.
+- **Frontend**: HTML, CSS, JavaScript
+  
+- **Backend**: Flask (Python)
+  
+- **ML/NLP**: Scikit-learn (TF-IDF, Cosine Similarity)
+  
+- **Data**: JSON (for trial storage)
 
-Weighted Scoring: Trials are ranked based on rule-based and semantic relevance.
+## Project Structure
 
-Results with Contact Info: Displays trial details with a generic contact option (modal popup).
-
-🛠 Tech Stack
-Frontend: HTML, CSS, JavaScript
-
-Backend: Flask (Python)
-
-ML/NLP: Scikit-learn (TF-IDF, Cosine Similarity)
-
-Data: JSON (for trial storage)
-
-📁 Project Structure
-php
-Copy
-Edit
+```plaintext
 clinical-trial-matcher/
 ├── app.py                 # Main Flask app and logic
 ├── trials.json            # Sample trial data (India-specific)
@@ -41,74 +42,95 @@ clinical-trial-matcher/
 └── templates/
     ├── index.html         # Home form page
     └── results.html       # Matched trials display
-🚀 Installation
-Clone this repo
+```
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/clinical-trial-matcher.git
-cd clinical-trial-matcher
-Set up virtual environment (recommended)
+## Installation
 
-bash
-Copy
-Edit
-python -m venv venv
-Activate environment
+1. **Clone this repo**:
 
-Windows:
+   ```bash
+   git clone https://github.com/your-username/clinical-trial-matcher.git
+   cd clinical-trial-matcher
+   ```
 
-bash
-Copy
-Edit
-.\venv\Scripts\activate
-macOS/Linux:
+2. **Set up virtual environment (recommended)**:
 
-bash
-Copy
-Edit
-source venv/bin/activate
-Install dependencies
+   ```bash
+   python -m venv venv
+   ```
 
-bash
-Copy
-Edit
-pip install Flask scikit-learn
-Run the app
+3. **Activate environment**:
 
-bash
-Copy
-Edit
-python app.py
-Visit the app
-Open your browser at: http://127.0.0.1:5000
+   - **Windows**:
 
-🧪 How to Use
-Fill out the patient’s form on the homepage.
+     ```bash
+     .\venv\Scripts\activate
+     ```
 
-Select your location and relevant conditions/medications.
+   - **macOS/Linux**:
 
-Click Find Matching Trials.
+     ```bash
+     source venv/bin/activate
+     ```
 
-Review the trial cards, each showing a match score and eligibility info.
+4. **Install dependencies**:
 
-Click Contact Trial Coordinator for general contact guidance.
+   ```bash
+   pip install Flask scikit-learn
+   ```
 
-🧩 Future Improvements
-BERT/NER for more accurate NLP parsing.
+5. **Run the app**:
 
-Move from trials.json to SQL/PostgreSQL.
+   ```bash
+   python app.py
+   ```
 
-Add user login and patient profile saving.
+6. **Visit the app**: Open your browser at: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-Advanced trial filters (e.g., by trial phase).
 
-Admin panel for trial data upload.
+## Screenshots: 
+![WhatsApp Image 2025-07-03 at 12 28 49_e5a7a840](https://github.com/user-attachments/assets/9906fecd-a42a-46e3-a06f-7685bd25f7f7)
 
-Real contact integration (if permissible).
+![WhatsApp Image 2025-07-03 at 12 29 07_f80eb11b](https://github.com/user-attachments/assets/8dc2a147-b27d-4046-a363-336559bc952a)
 
-Full testing suite and production-level logging.
+![WhatsApp Image 2025-07-03 at 12 29 31_2cfebfc1](https://github.com/user-attachments/assets/1299f89e-24be-4afb-9d57-c8b937f26f08)
 
-📄 License
-This project is licensed under the
+![WhatsApp Image 2025-07-03 at 12 29 51_56a7694d](https://github.com/user-attachments/assets/3a6a7823-d855-493e-9730-0663b638c7a5)
+
+![WhatsApp Image 2025-07-03 at 12 33 30_835c15ed](https://github.com/user-attachments/assets/70c21ee3-08df-4de5-8804-9a9f6b970cec)
+
+![WhatsApp Image 2025-07-03 at 12 33 48_376c9da3](https://github.com/user-attachments/assets/9b3a0eac-6c00-4aea-9fb4-74018eb7e7b8)
+
+
+
+## How to Use
+
+- Fill out the patient’s form on the homepage.
+  
+- Select your location and relevant conditions/medications.
+  
+- Click **Find Matching Trials**.
+  
+- Review the trial cards, each showing a match score and eligibility info.
+  
+- Click **Contact Trial Coordinator** for general contact guidance.
+
+## Future Improvements
+
+- Implement BERT/NER for more accurate NLP parsing.
+  
+- Transition from `trials.json` to SQL/PostgreSQL.
+  
+- Add user login and patient profile saving.
+  
+- Introduce advanced trial filters (e.g., by trial phase).
+  
+- Create an admin panel for trial data upload.
+  
+- Integrate real contact options (if permissible).
+  
+- Develop a full testing suite and production-level logging.
+
+## License
+
+This project is licensed under the Apache License.
