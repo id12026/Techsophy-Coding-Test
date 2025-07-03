@@ -14,7 +14,7 @@ Build a tool that matches patients to relevant clinical trials based on eligibil
   
 - **Location-Aware Filtering**: Filters trials by Indian cities/states.
   
-- **Disease-Specific Shortcuts**: Quick-tag options for common Indian diseases.
+- **Disease-Specific Shortcuts**: Quick-tag options for common diseases.
   
 - **Eligibility Matching**: Dynamically checks inclusion/exclusion criteria.
   
@@ -53,8 +53,8 @@ clinical-trial-matcher/
 1. **Clone this repo**:
 
    ```bash
-   git clone https://github.com/your-username/clinical-trial-matcher.git
-   cd clinical-trial-matcher
+   git clone https://github.com/id12026/Techsophy-Coding-Test.git
+   cd Techsophy
    ```
 
 2. **Set up virtual environment (recommended)**:
@@ -123,7 +123,7 @@ clinical-trial-matcher/
 
 - Implement BERT/NER for more accurate NLP parsing.
   
-- Transition from `trials.json` to SQL/PostgreSQL.
+- Transition from `trials.json` to SQL.
   
 - Add user login and patient profile saving.
   
@@ -141,7 +141,7 @@ This project is licensed under the Apache License.
 
 ## BY
 
-## Mohitha Bandi
-## 22WU0105037
-## C.S.E - Data Science
+## Name: Mohitha Bandi
+## Student ID: 22WU0105037
+## B.Tech: C.S.E - Data Science
 ## E-mail: mohitha.bandi_2026@woxsen.edu.in
