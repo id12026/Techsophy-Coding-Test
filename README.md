@@ -1,6 +1,6 @@
-##🏥**Clinical Trial Patient Matching System**
+##🏥Clinical Trial Patient Matching System 
 
-## Overview
+## Overview:
 
 This tool helps patients to find suitable clinical trials based on their medical and demographic profiles. The system utilizes AI/ML techniques, including TF-IDF and cosine similarity, to rank and recommend clinical trials with relevance scoring.
 
