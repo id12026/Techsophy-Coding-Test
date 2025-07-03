@@ -127,8 +127,6 @@ clinical-trial-matcher/
   
 - Add user login and patient profile saving.
   
-- Introduce advanced trial filters (e.g., by trial phase).
-  
 - Create an admin panel for trial data upload.
   
 - Integrate real contact options (if permissible).
